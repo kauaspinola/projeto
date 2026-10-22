@@ -5,9 +5,9 @@ from django.db import models
 # A função __str__ retorna o email do cliente, de modo que no banco de dados, o email do cliente será exibido como representação do objeto Cliente.
 
 class Cliente(models.Model):
-    email = models.EmailField(max_length=254, unique=True, blank=False)
-    senha = models.CharField(max_length=128, blank=False)
-    telefone = models.CharField(max_length=15, blank=False, null=False)
+    email = models.EmailField(max_length=254, unique=True, blank=True, null=True)
+    senha = models.CharField(max_length=128, blank=True, null=True)
+    telefone = models.CharField(max_length=15, blank=True, null=True)
     cpf = models.CharField(max_length=11, blank=True, null=True)
 
     def __str__(self):
