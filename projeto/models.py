@@ -9,7 +9,6 @@ class Cliente(models.Model):
     senha = models.CharField(max_length=128, blank=False)
     telefone = models.CharField(max_length=15, blank=False, null=False)
     cpf = models.CharField(max_length=11, blank=True, null=True)
-    data_nascimento = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.email
