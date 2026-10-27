@@ -8,7 +8,21 @@ class Cliente(models.Model):
     email = models.EmailField(max_length=254, unique=True, blank=True, null=True)
     senha = models.CharField(max_length=128, blank=True, null=True)
     telefone = models.CharField(max_length=15, blank=True, null=True)
-    cpf = models.CharField(max_length=11, blank=True, null=True)
+    cpf = models.CharField(max_length=11, unique=True, blank=True, null=True)
+    cep = models.CharField(max_length=8, blank=True, null=True)
+    endereco = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.email
+
+class Produto(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=100)
+    cor = models.CharField(max_length=50)
+    tamanho = models.CharField(max_length=10)
+    descricao = models.TextField()
+    preco = models.DecimalField(max_digits=10, decimal_places=2)
+    estoque = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.id)
